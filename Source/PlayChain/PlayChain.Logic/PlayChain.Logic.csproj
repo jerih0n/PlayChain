@@ -8,8 +8,4 @@
     <ProjectReference Include="..\PlayChain.Node.Model\PlayChain.Node.Model.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Connecting\" />
-  </ItemGroup>
-
 </Project>

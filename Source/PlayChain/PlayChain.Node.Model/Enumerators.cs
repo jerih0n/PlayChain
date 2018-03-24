@@ -13,6 +13,12 @@ namespace PlayChain.Node.Model
             Exit = 3,
             Continue = 4,
         }
+        public enum ConnectorStatus
+        {
+            Open = 1,
+            NotRespondig =2,
+            Closed = 3
+        }
     }
     
 }

@@ -1,4 +1,5 @@
-﻿using PlayChain.Node.Model;
+﻿using PlayChain.Logic.Common;
+using PlayChain.Node.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,6 +12,9 @@ namespace PlayChain.Logic
         {
             switch(command)
             {
+                case "-help":
+                    CommonOperations.PrintHelp();
+                    return Enumerators.CommandInterpretatorResponses.Continue;
                 default:
                     Console.WriteLine("Unknown Command!");
                     return Enumerators.CommandInterpretatorResponses.Continue;
