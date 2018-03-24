@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PlayChain.Node.Model\PlayChain.Node.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Connecting\" />
+  </ItemGroup>
+
+</Project>
