@@ -7,15 +7,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Crypto", "Crypto", "{082453
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Node", "Node", "{632B53A5-A8D5-4C3E-AC01-F26BC39A7972}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayChain.Node", "PayChain.Node\PayChain.Node.csproj", "{958C45F5-BDA7-4E3B-B6C6-767939394E5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayChain.Node", "PayChain.Node\PayChain.Node.csproj", "{958C45F5-BDA7-4E3B-B6C6-767939394E5C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{FAFA5258-8ED8-4FAA-AA05-C39F5FDD8D70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayChain.Node.NodeConfiguration", "PlayChain.Node.NodeConfiguration\PlayChain.Node.NodeConfiguration.csproj", "{B2562678-9B6C-4688-891A-DFFC7DE63C72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayChain.Node.NodeConfiguration", "PlayChain.Node.NodeConfiguration\PlayChain.Node.NodeConfiguration.csproj", "{B2562678-9B6C-4688-891A-DFFC7DE63C72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayChain.Node.Model", "PlayChain.Node.Model\PlayChain.Node.Model.csproj", "{46ED1CE0-B801-40D5-8F48-2AE37D92B0FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayChain.Node.Model", "PlayChain.Node.Model\PlayChain.Node.Model.csproj", "{46ED1CE0-B801-40D5-8F48-2AE37D92B0FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayChain.Logic", "PlayChain.Logic\PlayChain.Logic.csproj", "{617FFF8B-04AD-491C-9E20-80D284252077}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlayChain.Logic", "PlayChain.Logic\PlayChain.Logic.csproj", "{617FFF8B-04AD-491C-9E20-80D284252077}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Launcher", "Launcher", "{3ED31DCD-01FA-4FC7-9F65-F6614F637960}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Windows Launcher", "Windows Launcher", "{66882E93-4459-41DF-AD37-8575A160BCB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeWindowsLauncher", "NodeWindowsLauncher\NodeWindowsLauncher.csproj", "{A0D129AA-10F8-49B9-8CBA-0C175CF331A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,10 @@ Global
 		{617FFF8B-04AD-491C-9E20-80D284252077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{617FFF8B-04AD-491C-9E20-80D284252077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{617FFF8B-04AD-491C-9E20-80D284252077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0D129AA-10F8-49B9-8CBA-0C175CF331A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0D129AA-10F8-49B9-8CBA-0C175CF331A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0D129AA-10F8-49B9-8CBA-0C175CF331A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0D129AA-10F8-49B9-8CBA-0C175CF331A4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +59,9 @@ Global
 		{B2562678-9B6C-4688-891A-DFFC7DE63C72} = {FAFA5258-8ED8-4FAA-AA05-C39F5FDD8D70}
 		{46ED1CE0-B801-40D5-8F48-2AE37D92B0FB} = {FAFA5258-8ED8-4FAA-AA05-C39F5FDD8D70}
 		{617FFF8B-04AD-491C-9E20-80D284252077} = {FAFA5258-8ED8-4FAA-AA05-C39F5FDD8D70}
+		{3ED31DCD-01FA-4FC7-9F65-F6614F637960} = {632B53A5-A8D5-4C3E-AC01-F26BC39A7972}
+		{66882E93-4459-41DF-AD37-8575A160BCB3} = {3ED31DCD-01FA-4FC7-9F65-F6614F637960}
+		{A0D129AA-10F8-49B9-8CBA-0C175CF331A4} = {66882E93-4459-41DF-AD37-8575A160BCB3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F0D6562E-DC2F-4130-8928-4845EDC9008D}
