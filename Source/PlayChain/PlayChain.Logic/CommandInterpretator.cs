@@ -1,4 +1,5 @@
 ﻿using PlayChain.Logic.Common;
+using PlayChain.Logic.Connecting;
 using PlayChain.Logic.Loader;
 using PlayChain.Node.Model;
 using System;
@@ -8,9 +9,11 @@ using System.Text;
 
 namespace PlayChain.Logic
 {
+    
     public static class CommandInterpretator
     {
         private static NodeConfiguration _config;
+        private static NodeReceiver _globalReceiver;
         public static Enumerators.CommandInterpretatorResponses ProcessCommand(string command)
         {
             switch(command)
@@ -18,6 +21,11 @@ namespace PlayChain.Logic
                 case "-help":
                     CommonOperations.PrintHelp();
                     return Enumerators.CommandInterpretatorResponses.Continue;
+                case "-start":
+                    StartListener();
+                    return Enumerators.CommandInterpretatorResponses.Continue;
+                case "-connect to":
+
                 default:
                     Console.WriteLine("Unknown Command!");
                     return Enumerators.CommandInterpretatorResponses.Continue;
@@ -32,5 +40,19 @@ namespace PlayChain.Logic
                 
             }
         }
+
+
+        #region Private Methos
+        private static void StartListener()
+        {
+            if(_globalReceiver == null)
+            {
+                _globalReceiver = new NodeReceiver(_config.IpAddress, _config.Port);
+                _globalReceiver.StartListener();
+                
+            }
+            Console.WriteLine("Node is accepting connections at {0} port {1}", _globalReceiver.NodeIpAddress,_globalReceiver.Port);
+        }
+        #endregion
     }
 }

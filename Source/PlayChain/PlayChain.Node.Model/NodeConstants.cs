@@ -13,6 +13,7 @@ namespace PlayChain.Node.Model
             { "-help"," - get all commands" }, // Get help menu
             { "-connect", "- try connect to know PlayChain nodes"}, //Open Connection to know nodes if exist
             { "-connect to", "- try connect to unknow PlayChain node. Require IPAddress and port" }, // Open connection to given IP address
+            { "-start", "- open Tcp Listener and start accepting connections" }
 
         };
     }
