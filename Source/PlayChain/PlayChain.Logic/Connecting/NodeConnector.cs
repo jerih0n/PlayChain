@@ -9,14 +9,60 @@ namespace PlayChain.Logic.Connecting
 {
     public class NodeConnector
     {
-        private Enumerators.ConnectorStatus _status = Enumerators.ConnectorStatus.Closed;
-        public NodeConnector(string address, int port)
+        
+        private Dictionary<long, TcpClient> _allConnections;
+        public NodeConnector()
         {
-            this.ConnectionStatus = _status;
-            
+            this._allConnections = new Dictionary<long, TcpClient>();           
         }
-        #region Properties
-        public Enumerators.ConnectorStatus ConnectionStatus { get; private set; }
+
+        #region Public
+        public void CloseAllConnections()
+        {
+            foreach(var connection in _allConnections)
+            {
+                connection.Value.Close();
+            }
+        }
+        public int GetActiveConnectionsCount()
+        {
+            int activeConnectionsCount = 0;
+            foreach(var pair in _allConnections)
+            {
+                if(pair.Value.Connected)
+                {
+                    activeConnectionsCount++;
+                }
+            }
+            return activeConnectionsCount;
+        }
+        public bool AddNewConnection(string IPaddress, int port)
+        {
+            throw new NotImplementedException();
+        }
+        public bool AddNewConnection(long IPaddress, int port)
+        {
+            throw new Exception();
+        }
+        #endregion
+
+        #region Private
+        private void AddNewClient(long ipAddress, int port)
+        {
+            var address = new IPAddress(ipAddress);
+            TcpClient client = new TcpClient();
+            try
+            {
+                client.Connect(address, port);
+            }
+            catch(SocketException ex)
+            {              
+            }
+            catch(Exception)
+            {
+
+            }
+        }
         #endregion
     }
 }

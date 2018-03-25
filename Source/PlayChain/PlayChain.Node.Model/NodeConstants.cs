@@ -6,6 +6,8 @@ namespace PlayChain.Node.Model
 {
     public static class NodeConstants
     {
+        public static readonly string ConfigFileDirectory = "Config\\";
+        public static readonly string ConfigName = "NodeConfig.json";
         public static readonly Dictionary<string,string> NodeCommands = new Dictionary<string, string>()
         {
             { "-help"," - get all commands" }, // Get help menu

@@ -11,7 +11,7 @@ namespace PlayChain.Node.NodeConfiguration
     public static class DefaultConfiguration
     {
         public static readonly int PORT = 8001;
-        private static readonly string IPADDRESS = "127.0.0.1"; // localhost as default
+        public static readonly string IPADDRESS = "127.0.0.1"; // localhost as default
 
         
     }
