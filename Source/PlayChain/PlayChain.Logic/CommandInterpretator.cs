@@ -14,6 +14,7 @@ namespace PlayChain.Logic
     {
         private static NodeConfiguration _config;
         private static NodeReceiver _globalReceiver;
+        private static NodeConnector _connector;
         public static Enumerators.CommandInterpretatorResponses ProcessCommand(string command)
         {
             switch(command)
@@ -25,7 +26,9 @@ namespace PlayChain.Logic
                     StartListener();
                     return Enumerators.CommandInterpretatorResponses.Continue;
                 case "-connect to":
-
+                    var connection = NodeConnectorHelper.GetRequestedConnection();
+                    StartSender(connection.IpAddress, connection.Port);
+                    return Enumerators.CommandInterpretatorResponses.Continue;
                 default:
                     Console.WriteLine("Unknown Command!");
                     return Enumerators.CommandInterpretatorResponses.Continue;
@@ -47,11 +50,20 @@ namespace PlayChain.Logic
         {
             if(_globalReceiver == null)
             {
-                _globalReceiver = new NodeReceiver(_config.IpAddress, _config.Port);
+                _globalReceiver = new NodeReceiver(_config.IpAddress, _config.PortListen);
                 _globalReceiver.StartListener();
                 
             }
             Console.WriteLine("Node is accepting connections at {0} port {1}", _globalReceiver.NodeIpAddress,_globalReceiver.Port);
+        }
+        private static void StartSender(string ipAddress, int port)
+        {
+            if(_connector == null)
+            {
+                _connector = new NodeConnector(_config.IpAddress, _config.PortConnect);
+                
+            }
+            _connector.AddNewConnection(ipAddress, port);
         }
         #endregion
     }

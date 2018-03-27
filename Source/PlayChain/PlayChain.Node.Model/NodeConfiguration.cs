@@ -16,15 +16,18 @@ namespace PlayChain.Node.Model
             }
         }
        
-        public int Port { get; set; }
+        public int PortListen { get; set; }
+        public int PortConnect { get; set; }
         public string IpAddress { get; set; }
         public HashSet<long> KnownIpAddresses { get; set; }
 
         private void InitialDefaultConfig()
         {
-            Port = DefaultConfiguration.PORT;
+            PortConnect = DefaultConfiguration.PORT_CONNECT;
+            PortListen = DefaultConfiguration.PORT_LISTEN;
             IpAddress = DefaultConfiguration.IPADDRESS;
             KnownIpAddresses = new HashSet<long>();
+            
         }
     }
 }

@@ -5,15 +5,21 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
+
 namespace PlayChain.Logic.Connecting
 {
     public class NodeConnector
     {
         
-        private Dictionary<long, TcpClient> _allConnections;
-        public NodeConnector()
+        private Dictionary<long, Socket> _allConnections;
+        private Socket _socket;
+        private IPAddress _address;
+        public NodeConnector(string nodeIpAddress, int port)
         {
-            this._allConnections = new Dictionary<long, TcpClient>();           
+            _address = IPAddress.Parse(nodeIpAddress);
+            _socket = new Socket(_address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            _socket.Bind(new IPEndPoint(_address, port));
+            this._allConnections = new Dictionary<long, Socket>();           
         }
 
         #region Public
@@ -36,33 +42,39 @@ namespace PlayChain.Logic.Connecting
             }
             return activeConnectionsCount;
         }
-        public bool AddNewConnection(string IPaddress, int port)
+        public Enumerators.ConnectionResponse AddNewConnection(string IPaddress, int port)
         {
-            throw new NotImplementedException();
-        }
-        public bool AddNewConnection(long IPaddress, int port)
-        {
-            throw new Exception();
-        }
+            var ipAsLong = 5;
+            //var ipAsLong = Common.CommonOperations.ConvertIPAddressFromString(IPaddress);
+            if (!_allConnections.ContainsKey(ipAsLong))
+            {
+                
+                TryConnect(Common.CommonOperations.ConvertIpAddressFromStringToByteArr(IPaddress), port);
+                
+            }
+
+            return Enumerators.ConnectionResponse.ConnectionExist;
+        }       
         #endregion
 
         #region Private
-        private void AddNewClient(long ipAddress, int port)
+        private void TryConnect(byte[] ipAddress, int port)
         {
+            var result = Enumerators.ConnectionResponse.FaildToAddConnection;
             var address = new IPAddress(ipAddress);
-            TcpClient client = new TcpClient();
-            try
-            {
-                client.Connect(address, port);
-            }
-            catch(SocketException ex)
-            {              
-            }
-            catch(Exception)
-            {
 
-            }
+            _socket.BeginConnect(new IPEndPoint(address, port), OnConnect, _socket);
         }
+
+        private void OnConnect(IAsyncResult ar)
+        {
+            var socket = (Socket)ar.AsyncState;
+            socket.EndConnect(ar);
+            var simpleMsg = "Hello World!";
+            var bytes = Encoding.Unicode.GetBytes(simpleMsg);
+            socket.Send(bytes);
+        }
+
         #endregion
     }
 }

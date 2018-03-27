@@ -13,12 +13,18 @@ namespace PlayChain.Node.Model
             Exit = 3,
             Continue = 4,
         }
-        public enum ConnectorStatus
+        public enum ReceiverStatus
         {
-            Open = 1,
-            NotRespondig =2,
-            Closed = 3
+            NotListening = 1,
+            Listening = 2
         }
+        public enum ConnectionResponse
+        {
+            ConnectionExist = 1,
+            ConnectionAdded = 2,
+            FaildToAddConnection = 3
+        }
+
     }
     
 }
