@@ -25,6 +25,12 @@ namespace PlayChain.Node.Model
             FaildToAddConnection = 3
         }
 
+        public enum ConnectionMessages
+        {
+            GiveLastBlockId = 1, // send request go get the last block id
+            SendChain = 2, // ask for missing blocks of the chai
+
+        }
     }
     
 }

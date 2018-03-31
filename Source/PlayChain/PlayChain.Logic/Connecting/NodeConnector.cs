@@ -60,7 +60,7 @@ namespace PlayChain.Logic.Connecting
         #region Private
         private void TryConnect(byte[] ipAddress, int port)
         {
-            var result = Enumerators.ConnectionResponse.FaildToAddConnection;
+            
             var address = new IPAddress(ipAddress);
 
             _socket.BeginConnect(new IPEndPoint(address, port), OnConnect, _socket);
@@ -70,9 +70,9 @@ namespace PlayChain.Logic.Connecting
         {
             var socket = (Socket)ar.AsyncState;
             socket.EndConnect(ar);
-            var simpleMsg = "Hello World!";
-            var bytes = Encoding.Unicode.GetBytes(simpleMsg);
+            var bytes = Encoding.ASCII.GetBytes("");
             socket.Send(bytes);
+            
         }
 
         #endregion
