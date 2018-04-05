@@ -7,9 +7,9 @@ using System.Text;
 
 namespace PlayChain.Node.Connection.Interfaces
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IConnectionManager" in both code and config file together.
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "INodeConnectionService" in both code and config file together.
     [ServiceContract]
-    public interface IConnectionService
+    public interface INodeConnectionService
     {
         [OperationContract]
         string DoWork();

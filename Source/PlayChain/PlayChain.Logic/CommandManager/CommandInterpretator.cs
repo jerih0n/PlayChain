@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.ServiceModel;
 using PlayChain.Logic.CommandManager.CommandStrategy;
 using PlayChain.Logic.CommandManager.CommandStrategy.ComandExecutions;
 using PlayChain.Logic.CommandManager.CommandFacotry;

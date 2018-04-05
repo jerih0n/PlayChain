@@ -10,7 +10,8 @@ namespace PlayChain.Logic.CommandManager.CommandFacotry
     {
         private static Dictionary<string, INodeCommand> _commands = new Dictionary<string, INodeCommand>()
         {
-            { "-help", new PrintHelpCommand() }
+            { "-help", new PrintHelpCommand() },
+            { "-start", new StartNodeCommand() }
         };
         public static bool GetCommandActionClass(string command,out INodeCommand nodeCommand)
         {

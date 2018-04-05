@@ -8,8 +8,8 @@ using System.Text;
 
 namespace PlayChain.Node.Connection.Classes
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ConnectionManager" in both code and config file together.
-    public class ConnectionService : IConnectionService
+    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "NodeConnectionService" in both code and config file together.
+    public class NodeConnectionService : INodeConnectionService
     {
         public string DoWork()
         {

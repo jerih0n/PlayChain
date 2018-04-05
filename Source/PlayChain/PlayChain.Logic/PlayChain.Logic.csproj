@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Platforms>AnyCPU;x86</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,12 +16,6 @@
 
   <ItemGroup>
     <Folder Include="NodeComunication\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.ServiceModel">
-      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ServiceModel.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 </Project>

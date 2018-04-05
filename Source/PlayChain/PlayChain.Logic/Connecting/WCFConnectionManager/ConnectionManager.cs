@@ -12,19 +12,20 @@ namespace PlayChain.Logic.Connecting.WCFConnectionManager
     {
         public ConnectionManager()
         {
-            Init();
+            
         }
         private ServiceHost serviceHost = null;
-        private void Init()
+        
+        public void Init()
         {
             try
             {
                 //Base Address for StudentService
                 Uri httpBaseAddress = new Uri("http://localhost:4321/StudentService");
                 //Instantiate ServiceHost
-                serviceHost = new ServiceHost(typeof(ConnectionService),httpBaseAddress);
+                serviceHost = new ServiceHost(typeof(NodeConnectionService),httpBaseAddress);
                 //Add Endpoint to Host
-                serviceHost.AddServiceEndpoint(typeof(IConnectionService),new NetHttpBinding(), "");
+                serviceHost.AddServiceEndpoint(typeof(INodeConnectionService),new NetHttpBinding(), "");
 
                 //Metadata Exchange
                 ServiceMetadataBehavior serviceBehavior = new ServiceMetadataBehavior();
