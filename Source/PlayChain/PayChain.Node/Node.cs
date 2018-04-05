@@ -1,4 +1,7 @@
 ﻿using PlayChain.Logic;
+using PlayChain.Logic.CommandManager;
+using PlayChain.Logic.Loader;
+using PlayChain.Node.Model;
 using System;
 using System.Threading;
 
@@ -6,12 +9,12 @@ namespace PayChain.Node
 {
     public class Node
     {
-        
+        private static NodeConfiguration _config;
         static void Main(string[] args)
         {
-            
+            LoadDependecies();
+            var commandInterpretator = new CommandInterpretator(_config);
             string inputCommand;
-            CommandInterpretator.LoadNodeDependencies();
             Console.WriteLine("This is PlayChain heavy node");
             Console.WriteLine("Enter -help for all available commands");
             while (true)
@@ -19,7 +22,7 @@ namespace PayChain.Node
                 try
                 {
                     inputCommand = Console.ReadLine().ToLower();
-                    var response = CommandInterpretator.ProcessCommand(inputCommand);
+                    var response = commandInterpretator.ProcessCommand(inputCommand);
                     if (response == PlayChain.Node.Model.Enumerators.CommandInterpretatorResponses.Exit)
                     {
                         Console.WriteLine("Exiting node...");
@@ -33,6 +36,10 @@ namespace PayChain.Node
 
                 }
             }
+        }
+        private static void LoadDependecies()
+        {
+            LoadHelper.LoadConfig(out _config);
         }
     }
 }

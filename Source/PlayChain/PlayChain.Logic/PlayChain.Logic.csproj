@@ -9,11 +9,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PlayChain.Node.Connection\PlayChain.Node.Connection.csproj" />
     <ProjectReference Include="..\PlayChain.Node.Model\PlayChain.Node.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="NodeComunication\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.ServiceModel">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5.2\System.ServiceModel.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\PlayChain.Logic\PlayChain.Logic.csproj" />
+    <ProjectReference Include="..\PlayChain.Node.Connection\PlayChain.Node.Connection.csproj" />
   </ItemGroup>
 
   <ItemGroup>
