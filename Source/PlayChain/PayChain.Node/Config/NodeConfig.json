@@ -1,6 +1,0 @@
-{
-  "PortListen": 8002,
-  "PortConnect": 8001,
-  "IpAddress": "192.168.0.105",
-  "KnownIpAddresses": []
-}
