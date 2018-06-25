@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Constants.cs" />
     <Compile Include="Helpers\MessagesHelper.cs" />
     <Compile Include="Models\Block.cs" />
     <Compile Include="Models\Chain.cs" />
